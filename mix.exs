@@ -1,7 +1,11 @@
 defmodule B58.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version (case(File.read("VERSION")) do
+    {:ok, version} -> String.trim(version)
+    {:error, _} -> "0.0.0-development"
+  end)
+
   @source_url "https://github.com/nocursor/b58"
 
   def project do
@@ -13,7 +17,8 @@ defmodule B58.MixProject do
       deps: deps(),
 
       # Hex
-      description: "Elixir library for encoding and decoding Base58 and Base58Check using the Bitcoin/IPFS, Ripple, and Flickr alphabets.",
+      description:
+        "Elixir library for encoding and decoding Base58 and Base58Check using the Bitcoin/IPFS, Ripple, and Flickr alphabets.",
       package: package(),
 
       # Docs
@@ -31,12 +36,13 @@ defmodule B58.MixProject do
 
   defp package do
     [
+      organization: "coingaming",
       maintainers: [
-        "nocursor",
+        "nocursor"
       ],
       licenses: ["MIT"],
       links: %{github: @source_url},
-      files: ~w(lib NEWS.md LICENSE.md mix.exs README.md)
+      files: ~w(lib NEWS.md LICENSE.md mix.exs README.md VERSION)
     ]
   end
 
@@ -52,13 +58,12 @@ defmodule B58.MixProject do
 
   defp extras do
     [
-      "docs/FAQ.md",
+      "docs/FAQ.md"
     ]
   end
 
   defp groups_for_extras do
-    [
-    ]
+    []
   end
 
   # Run "mix help deps" to learn about dependencies.
@@ -66,7 +71,7 @@ defmodule B58.MixProject do
     [
       {:benchee, "~> 0.13.2", only: [:dev]},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.13", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.13", only: [:dev], runtime: false}
     ]
   end
 end
