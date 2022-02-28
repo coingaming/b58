@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/coingaming/b58/compare/v1.0.0...v1.0.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* ex_doc in :test ([bd63d9b](https://github.com/coingaming/b58/commit/bd63d9b717e1219ceff8adcc2e94d4b8e75dfd52))
+
 # 1.0.0 (2022-02-28)
 
 
