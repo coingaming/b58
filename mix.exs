@@ -71,7 +71,7 @@ defmodule B58.MixProject do
     [
       {:benchee, "~> 0.13.2", only: [:dev]},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.13", only: [:dev], runtime: false}
+      {:ex_doc, "~> 0.13", only: [:dev, :test], runtime: false}
     ]
   end
 end
